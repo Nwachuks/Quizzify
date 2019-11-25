@@ -12,7 +12,7 @@ class QuestionBank {
     var questions = [Question]()
     
     init() {
-        // Create a question
+        // Create a question item
         let item = Question(question: "Valentine\'s day is banned in Saudi Arabia.", correctAnswer: true)
         
         // Add the Question to the list of questions
