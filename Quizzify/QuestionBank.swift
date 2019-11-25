@@ -1,6 +1,6 @@
 //
 //  QuestionBank.swift
-//  Quizzler
+//  Quizzify
 //
 //  Created by Coded Professor on 25/11/2019.
 //  Copyright © 2019 Coded Professor. All rights reserved.
