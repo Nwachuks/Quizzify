@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        questionLabel.text = questionList.questions[questionNumber].questionText
+        nextQuestion()
     }
 
     // When either true or false button is pressed
@@ -51,8 +51,15 @@ class ViewController: UIViewController {
         if questionNumber < 13 {
             questionLabel.text = questionList.questions[questionNumber].questionText
         } else {
-            print("End of quiz")
-            questionNumber = 0
+            let alert = UIAlertController(title: "Cool!", message: "You've finished all questions, do you want to restart?", preferredStyle: .alert)
+            
+            let restartAction = UIAlertAction(title: "Restart", style: .default) { (UIAlertAction) in
+                self.startOver()
+            }
+            
+            alert.addAction(restartAction)
+            
+            present(alert, animated: true, completion: nil)
         }
         
     }
@@ -69,7 +76,8 @@ class ViewController: UIViewController {
     
     // Wipe board clean so that quiz can be retaken
     func startOver() {
-       
+        questionNumber = 0
+        nextQuestion()
     }
     
 
