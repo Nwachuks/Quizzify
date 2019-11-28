@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     let questionList = QuestionBank()
     var questionNumber: Int = 0
     var pickedAnswer: Bool = false
+    var score: Int = 0
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -43,13 +44,19 @@ class ViewController: UIViewController {
     
     // Update the UI appearance with appropriate content
     func updateUI() {
-      
+        scoreLabel.text = "Score: \(score)"
+        
+        progressLabel.text = "\(questionNumber + 1)/13"
+        
+        progressBar.frame.size.width = (view.frame.size.width / 13) * CGFloat(questionNumber + 1)
     }
     
     // Update question text and check if end of question bank has been reached
     func nextQuestion() {
         if questionNumber < 13 {
             questionLabel.text = questionList.questions[questionNumber].questionText
+            
+            updateUI()
         } else {
             let alert = UIAlertController(title: "Cool!", message: "You've finished all questions, do you want to restart?", preferredStyle: .alert)
             
@@ -69,6 +76,7 @@ class ViewController: UIViewController {
         let correctAnswer = questionList.questions[questionNumber].answer
         if pickedAnswer == correctAnswer {
             print("You got it!")
+            score += 1
         } else {
             print("You're wrong!")
         }
@@ -77,6 +85,7 @@ class ViewController: UIViewController {
     // Wipe board clean so that quiz can be retaken
     func startOver() {
         questionNumber = 0
+        score = 0
         nextQuestion()
     }
     
