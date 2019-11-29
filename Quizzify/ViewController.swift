@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     
     // Update question text and check if end of question bank has been reached
     func nextQuestion() {
-        if questionNumber < 13 {
+        if questionNumber < questionList.questions.count {
             questionLabel.text = questionList.questions[questionNumber].questionText
             
             updateUI()

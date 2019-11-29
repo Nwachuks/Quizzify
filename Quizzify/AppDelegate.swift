@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Quizzler
+//  Quizzify
 //
-//  Created by Angela Yu on 25/08/2015.
-//  Copyright (c) 2015 London App Brewery. All rights reserved.
+//  Created by Coded Professor on 25/11/2019.
+//  Copyright © 2019 Coded Professor. All rights reserved.
 //
 
 import UIKit
